@@ -1,0 +1,80 @@
+[debug] [2020-11-09T20:07:40.924Z] ----------------------------------------------------------------------
+[debug] [2020-11-09T20:07:40.931Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2020-11-09T20:07:40.932Z] CLI Version:   8.15.1
+[debug] [2020-11-09T20:07:40.932Z] Platform:      darwin
+[debug] [2020-11-09T20:07:40.932Z] Node Version:  v10.15.3
+[debug] [2020-11-09T20:07:40.947Z] Time:          Mon Nov 09 2020 15:07:40 GMT-0500 (GMT-05:00)
+[debug] [2020-11-09T20:07:40.947Z] ----------------------------------------------------------------------
+[debug] [2020-11-09T20:07:40.947Z] 
+[debug] [2020-11-09T20:07:40.972Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-11-09T20:07:40.973Z] > authorizing via signed-in user
+[debug] [2020-11-09T20:07:40.974Z] [iam] checking project kubadili-3c51a for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-11-09T20:07:40.986Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/kubadili-3c51a:testIamPermissions  
+ {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-11-09T20:07:41.731Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 09 Nov 2020 20:07:41 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=362","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-11-09T20:07:41.734Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/kubadili-3c51a  
+ 
+[debug] [2020-11-09T20:07:42.171Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 09 Nov 2020 20:07:42 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'kubadili-3c51a'...
+[info] 
+[info] i  deploying firestore, hosting 
+[info] i  firestore: reading indexes from firestore.indexes.json... 
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2020-11-09T20:07:42.185Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/kubadili-3c51a:test  
+ {"source":{"files":[{"name":"firestore.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    match /{document=**} {\n      allow write\n    }\n  }\n}"}]}}
+[debug] [2020-11-09T20:07:42.664Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 09 Nov 2020 20:07:42 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] ✔  cloud.firestore: rules file firestore.rules compiled successfully 
+[debug] [2020-11-09T20:07:42.669Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/kubadili-3c51a/versions  
+ {"config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2020-11-09T20:07:44.033Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 09 Nov 2020 20:07:43 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-11-09T20:07:44.039Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/kubadili-3c51a/releases?pageSize=10&pageToken=  
+ 
+[debug] [2020-11-09T20:07:44.040Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1/projects/kubadili-3c51a/databases/(default)/collectionGroups/-/indexes  
+ 
+[debug] [2020-11-09T20:07:44.315Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 09 Nov 2020 20:07:44 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-11-09T20:07:44.317Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/kubadili-3c51a/rulesets/4ebae9a4-91f5-40ec-abca-1eaa9e0b4cc4  
+ 
+[debug] [2020-11-09T20:07:44.577Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 09 Nov 2020 20:07:44 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  firestore: latest version of firestore.rules already up to date, skipping upload... 
+[debug] [2020-11-09T20:07:44.930Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 09 Nov 2020 20:07:44 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-11-09T20:07:44.932Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1/projects/kubadili-3c51a/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false  
+ 
+[debug] [2020-11-09T20:07:45.823Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 09 Nov 2020 20:07:45 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] ✔  firestore: deployed indexes in firestore.indexes.json successfully 
+[info] i  hosting[kubadili-3c51a]: beginning deploy... 
+[info] i  hosting[kubadili-3c51a]: found 26 files in build 
+[debug] [2020-11-09T20:07:46.827Z] [hosting] hash cache [YnVpbGQ] stored for 26 files
+[debug] [2020-11-09T20:07:46.828Z] [hosting][hash queue][FINAL] {"max":968,"min":4,"avg":53.96153846153846,"active":0,"complete":26,"success":26,"errored":0,"retried":0,"total":26,"elapsed":985}
+[debug] [2020-11-09T20:07:46.829Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/kubadili-3c51a/versions/733fb3e49f83a847:populateFiles  
+ <request body omitted>
+[debug] [2020-11-09T20:07:47.706Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 09 Nov 2020 20:07:47 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-11-09T20:07:47.710Z] [hosting][populate queue][FINAL] {"max":889,"min":889,"avg":889,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":892}
+[debug] [2020-11-09T20:07:47.710Z] [hosting] uploads queued: 2
+[debug] [2020-11-09T20:07:48.969Z] [hosting][upload queue][FINAL] {"max":1262,"min":1227,"avg":1244.5,"active":0,"complete":2,"success":2,"errored":0,"retried":0,"total":2,"elapsed":1262}
+[info] ✔  hosting[kubadili-3c51a]: file upload complete 
+[debug] [2020-11-09T20:07:48.970Z] [hosting] deploy completed after 3146ms
+[debug] [2020-11-09T20:07:49.249Z] [rules] releasing cloud.firestore with ruleset projects/kubadili-3c51a/rulesets/4ebae9a4-91f5-40ec-abca-1eaa9e0b4cc4
+[debug] [2020-11-09T20:07:49.250Z] >>> HTTP REQUEST PATCH https://firebaserules.googleapis.com/v1/projects/kubadili-3c51a/releases/cloud.firestore  
+ {"release":{"name":"projects/kubadili-3c51a/releases/cloud.firestore","rulesetName":"projects/kubadili-3c51a/rulesets/4ebae9a4-91f5-40ec-abca-1eaa9e0b4cc4"}}
+[debug] [2020-11-09T20:07:49.754Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 09 Nov 2020 20:07:49 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-11-09T20:07:49.755Z] [rules] updated release projects/kubadili-3c51a/releases/cloud.firestore
+[info] ✔  firestore: released rules firestore.rules to cloud.firestore 
+[debug] [2020-11-09T20:07:49.756Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "site": "kubadili-3c51a"
+    },
+    "site": "kubadili-3c51a",
+    "version": "sites/kubadili-3c51a/versions/733fb3e49f83a847"
+  }
+]
+[info] i  hosting[kubadili-3c51a]: finalizing version... 
+[debug] [2020-11-09T20:07:49.758Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/kubadili-3c51a/versions/733fb3e49f83a847?updateMask=status  
+ {"status":"FINALIZED"}

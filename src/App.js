@@ -71,8 +71,7 @@ function App() {
   const down = useRef(null);
 
   const onSubmit = (e) => {
-    // console.log(e);
-
+    
     db.collection("documents").add({
       ...e,
       document: document
@@ -95,7 +94,6 @@ function App() {
     var c = url.searchParams.get("doc");
     setDocument(c)
   })
-
 
 
   const handleChange = (item, value) => {
