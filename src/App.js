@@ -11,7 +11,7 @@ import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-countr
 
 // Firebase App (the core Firebase SDK) is always required and
 // must be listed before other Firebase SDKs
-import * as firebase from "firebase/app";
+import firebase from "firebase";
 
 // Add the Firebase services that you want to use
 import "firebase/auth";
@@ -40,6 +40,24 @@ const getSchema = () => yup.object().shape({
 });
 
 
+const firebaseConfig = {
+  apiKey: "AIzaSyD2yHNFMz5YvI13E2-8sic4urS-TtqEFbo",
+  authDomain: "kubadili-3c51a.firebaseapp.com",
+  databaseURL: "https://kubadili-3c51a.firebaseio.com",
+  projectId: "kubadili-3c51a",
+  storageBucket: "kubadili-3c51a.appspot.com",
+  messagingSenderId: "722390114947",
+  appId: "1:722390114947:web:4a64c6dc47090a693f31b6"
+};
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
+// Get a reference to the database service
+
+var db = firebase.firestore();
+
 function App() {
 
   const { register, errors, handleSubmit, setValue } = useForm({
@@ -47,11 +65,38 @@ function App() {
   });
 
   const [stateData, setState] = useState(initState);
+  const [document, setDocument] = useState("");
+  const [message, setMessage] = useState("");
 
+  const down = useRef(null);
 
   const onSubmit = (e) => {
-    console.log(e);
+    // console.log(e);
+
+    db.collection("documents").add({
+      ...e,
+      document: document
+    })
+      .then(function (docRef) {
+        console.log("Document written with ID: ", docRef.id);
+        setMessage("¡Gracias por tu mensaje!");
+        down.current.click();
+      })
+      .catch(function (error) {
+        setMessage("Ah ocurrido un error, intentalo de nuevo mas tarde, Gracias!");
+        console.error("Error adding document: ", error);
+      });
+
   }
+
+  useEffect(() => {
+    var url_string = window.location.href;//window.location.href
+    var url = new URL(url_string);
+    var c = url.searchParams.get("doc");
+    setDocument(c)
+  })
+
+
 
   const handleChange = (item, value) => {
     let _state = { ...stateData };
@@ -60,7 +105,7 @@ function App() {
 
     setValue(item, value);
   }
-  console.log(errors)
+
 
   return (
 
@@ -174,11 +219,11 @@ function App() {
                 onChange={e => handleChange("email", e.currentTarget.value)}
                 className="has-custom-focus style-k2b935sx1input" id="comp-k2b935s1input" />
 
-              
-                <p id="comp-k2b935s1message" className="style-k2b935sx1message" style={{ opacity: errors.email ? 1 : 0 }}>
-                  {errors.email?.message}
-                </p>
-              
+
+              <p id="comp-k2b935s1message" className="style-k2b935sx1message" style={{ opacity: errors.email ? 1 : 0 }}>
+                {errors.email?.message}
+              </p>
+
 
             </div>
 
@@ -194,11 +239,11 @@ function App() {
 
                 className="has-custom-focus style-k2b935li1input" id="comp-kh2ej8htinput" />
 
-              
-                <p id="comp-kh2ej8htmessage" className="style-k2b935li1message" style={{ opacity: errors.company ? 1 : 0 }}>
-                  {errors.company?.message}
-                </p>
-              
+
+              <p id="comp-kh2ej8htmessage" className="style-k2b935li1message" style={{ opacity: errors.company ? 1 : 0 }}>
+                {errors.company?.message}
+              </p>
+
 
 
             </div>
@@ -209,10 +254,11 @@ function App() {
               </button>
             </div>
 
-            <div data-packed="true" data-vertical-text="false" style={{ width: "296px", pointerEvents: "none", visibility: "hidden" }} data-hidden="true" className="txtNew" id="comp-k2b936v4">
+
+            <div data-packed="true" data-vertical-text="false" style={{ width: "296px", pointerEvents: "none", visibility: (message ? "block" : "hidden") }} data-hidden="true" className="txtNew" id="comp-k2b936v4">
               <p className="font_8" style={{ textAlign: "center" }}>
                 <span style={{ fontFamily: "futura-lt-w01-light,sans-serif" }}>
-                  <span style={{ color: "#05C8A1" }}>¡Gracias por tu mensaje! </span>
+                  <span style={{ color: "#05C8A1" }}>{message}</span>
                 </span>
               </p>
             </div>
@@ -221,6 +267,7 @@ function App() {
         </div>
 
       </form>
+      <a ref={down} href={document} target="_top" download style={{ display: "none" }} />
 
     </div >
   );
