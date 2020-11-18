@@ -1,3 +1,14 @@
+
+@font-face {
+  font-family: "avenir";
+  src: url('https://kubadili-3c51a.web.app/fonts/Metropolis-Medium.otf');
+}
+
+*{
+  font-family: "avenir" !important;
+}
+
+
 .pc1[data-state~="fixedPosition"] {position:fixed !important;left:auto !important;z-index:50;}
 .pc1[data-state~="fixedPosition"].pc1_footer {top:auto;bottom:0;}
 .pc1bg {position:absolute;top:0;right:0;bottom:0;left:0;}
@@ -587,7 +598,7 @@
   min-height: auto;
   /* grid-template-rows: min-content min-content min-content min-content min-content 1fr; */
   grid-template-columns: 1fr 1fr;
-  grid-gap: 2rem;
+  grid-gap: 1rem 2rem;
 }
 
 #custom_select{
@@ -672,6 +683,14 @@
   grid-column: 1/3;
 }
 
+#comp-k2b935kj > input,
+#comp-k7kujtvb > input,
+#comp-k2b935s1 > input,
+#comp-kh2ej8ht > input,
+#comp-k2b936qc > input,
+#comp-k2b936v4 > input{
+  color: #606682;
+}
 
 
 

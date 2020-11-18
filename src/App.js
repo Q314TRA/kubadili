@@ -77,13 +77,13 @@ function App() {
       document: document
     })
       .then(function (docRef) {
+        // console.log("Document written with ID: ", docRef.id);
         setMessage("¡Gracias por tu mensaje!");
-        console.log("Document written with ID: ", docRef.id);
-        // down.current.click();
+        down.current.click();
       })
       .catch(function (error) {
         setMessage("Ah ocurrido un error, intentalo de nuevo mas tarde, Gracias!");
-        console.error("Error adding document: ", error);
+        // console.error("Error adding document: ", error);
       });
 
   }
@@ -113,7 +113,7 @@ function App() {
         <div id="comp-k2b9359nform-gridWrapper" data-mesh-internal="true">
           <div id="comp-k2b9359nform-gridContainer" data-mesh-internal="true">
 
-            <div className="style-k2b935li1_with-validation-indication style-k2b935li1_required style-k2b935li1_left-direction style-k2b935li1" data-disabled="false" style={{ width: "244px", height: "43px" }} id="comp-k2b935kj">
+            <div className="style-k2b935li1_with-validation-indication style-k2b935li1_required style-k2b935li1_left-direction style-k2b935li1" data-disabled="false" style={{ width: "200px", height: "43px" }} id="comp-k2b935kj">
               <input type="text" style={{ paddingLeft: "2px" }}
                 placeholder="NOMBRE"
                 value={stateData.name}
@@ -130,7 +130,7 @@ function App() {
 
             </div>
 
-            <div className="style-k7kujtyp_required style-k7kujtyp_left-direction style-k7kujtyp" data-disabled="false" style={{ width: "244px", height: "43px" }} id="comp-k7kujtvb">
+            <div className="style-k7kujtyp_required style-k7kujtyp_left-direction style-k7kujtyp" data-disabled="false" style={{ width: "200px", height: "43px" }} id="comp-k7kujtvb">
               <input type="text" style={{ paddingLeft: "2px" }}
                 placeholder="APELLIDO"
                 value={stateData.lastName}
@@ -145,7 +145,7 @@ function App() {
               </p>
             </div>
 
-            <div className="style-k2b935sx1_required style-k2b935sx1_left-direction style-k2b935sx1" data-disabled="false" style={{ width: "244px", height: "43px" }} id="comp-k2b935s1">
+            <div className="style-k2b935sx1_required style-k2b935sx1_left-direction style-k2b935sx1" data-disabled="false" style={{ width: "200px", height: "43px" }} id="comp-k2b935s1">
               <input type="email" style={{ paddingLeft: "2px" }}
                 placeholder="E-MAIL"
                 value={stateData.email}
@@ -163,9 +163,9 @@ function App() {
 
             </div>
 
-            <div className="style-k2b935li1_required style-k2b935li1_left-direction style-k2b935li1" data-disabled="false" style={{ width: "244px", height: "43px" }} id="comp-kh2ej8ht">
+            <div className="style-k2b935li1_required style-k2b935li1_left-direction style-k2b935li1" data-disabled="false" style={{ width: "200px", height: "43px" }} id="comp-kh2ej8ht">
               <input type="text" style={{ paddingLeft: "2px" }}
-                placeholder="ORGANIZACIÓN O GOBIERNO"
+                placeholder="ORGANIZACIÓN"
 
                 value={stateData.company}
                 ref={register({ name: "company" }, {
@@ -181,7 +181,7 @@ function App() {
               </p>
             </div>
 
-            <div className="style-k2b935li1_with-validation-indication style-k2b935li1_required style-k2b935li1_left-direction style-k2b935li1" data-disabled="false" style={{ width: "244px", height: "43px" }} id="comp-k2b935kj">
+            <div className="style-k2b935li1_with-validation-indication style-k2b935li1_required style-k2b935li1_left-direction style-k2b935li1" data-disabled="false" style={{ width: "200px", height: "43px" }} id="comp-k2b935kj">
 
               <CountryDropdown
                 style={{ paddingLeft: "6px" }} className="custom_select" id="custom_select"
@@ -189,7 +189,7 @@ function App() {
                 ref={register({ name: "country" }, {
                   required: true
                 })}
-                defaultOptionLabel="Seleccione un país"
+                defaultOptionLabel="PAíS"
                 onChange={val => handleChange("country", val)} />
 
 
@@ -201,20 +201,20 @@ function App() {
 
             <div id="comp-k2b936qc" data-align="center" data-disabled="false" data-margin="0" data-should-use-flex="true" data-width="184" data-height="42" style={{ cursor: "pointer", height: "42px", minHeight: "18px", width: "184px" }} className="style-k2b93i3c" data-state="desktop shouldUseFlex center">
               <button style={{ cursor: "pointer" }} id="comp-k2b936qclink" className="g-transparent-a style-k2b93i3clink">
-                <span id="comp-k2b936qclabel" className="style-k2b93i3clabel">Descargar recurso </span>
+                <span id="comp-k2b936qclabel" className="style-k2b93i3clabel">Descargar</span>
               </button>
             </div>
 
 
 
 
-            <div data-packed="true" data-vertical-text="false" style={{ width: "296px", pointerEvents: "none", visibility: "block" }} data-hidden="true" className="txtNew" id="comp-k2b936v4">
+            {/* <div data-packed="true" data-vertical-text="false" style={{ width: "296px", pointerEvents: "none", visibility: "block" }} data-hidden="true" className="txtNew" id="comp-k2b936v4">
               <p className="font_8" style={{ textAlign: "center" }}>
                 <span style={{ fontFamily: "futura-lt-w01-light,sans-serif" }}>
                   <span style={{ color: "#05C8A1" }}>{message}</span>
                 </span>
               </p>
-            </div>
+            </div> */}
 
           </div>
         </div>
