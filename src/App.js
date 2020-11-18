@@ -220,7 +220,7 @@ function App() {
         </div>
 
       </form>
-      <a ref={down} href={document} target="_top" download style={{ display: "none" }} />
+      <a ref={down} href={document} target="_blank" download style={{ display: "none" }} />
 
     </div >
   );
